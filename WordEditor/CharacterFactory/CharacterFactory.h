@@ -1,3 +1,6 @@
+#ifndef CHARACTER_FACTORY_INCLUDED
+#define CHARACTER_FACTORY_INCLUDED
+
 #include </home/tarun/LLD/WordEditor/Character/Character.h>
 #include </home/tarun/LLD/WordEditor/Character/AlphabetCharacter.h>
 #include </home/tarun/LLD/WordEditor/Character/NumericCharacter.h>
@@ -28,16 +31,19 @@ public:
             {
                 Character *_character = new AlphabetCharacter(_value, _fontName, _fontSize, _isItalic, _isBold);
                 characterFactory_[_hash] = _character;
+                return _character;
             }
             else if (_value >= '0' && _value <= '9')
             {
                 Character *_character = new NumericCharacter(_value, _fontName, _fontSize, _isItalic, _isBold);
                 characterFactory_[_hash] = _character;
+                return _character;
             }
             else
             {
                 Character *_character = new SpecialCharacter(_value, _fontName, _fontSize, _isItalic, _isBold);
                 characterFactory_[_hash] = _character;
+                return _character;
             }
         }
     }
@@ -59,3 +65,5 @@ public:
         return _hash;
     }
 };
+
+#endif

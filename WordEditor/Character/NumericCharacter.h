@@ -1,3 +1,6 @@
+#ifndef NUMERIC_CHARACTER_INCLUDED
+#define NUMERIC_CHARACTER_INCLUDED
+
 #include </home/tarun/LLD/WordEditor/Character/Character.h>
 #include <string>
 
@@ -16,7 +19,22 @@ public:
         isItalic_ = _isItalic;
     }
 
-    void write(WritingPad _pad, int _posX, int _posY) override
+    std::string getValue() override
     {
+        std::string _hash = "";
+        _hash += value_;
+        _hash += '-';
+        _hash += fontName_;
+        _hash += '-';
+        _hash += fontSize_;
+        if (isBold_)
+        {
+            _hash += "-b";
+        }
+        if (isItalic_)
+            _hash += "-I";
+        return _hash;
     }
 };
+
+#endif

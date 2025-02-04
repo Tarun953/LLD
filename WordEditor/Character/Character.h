@@ -1,4 +1,6 @@
-#include </home/tarun/LLD/WordEditor/WritingPad/WritingPad.h>
+#ifndef CHARACTER_INCLUDED
+#define CHARACTER_INCLUDED
+
 #include <string>
 
 class Character
@@ -12,5 +14,7 @@ public:
     std::string fontSize_;
     bool isBold_, isItalic_;
 
-    virtual void write(WritingPad _pad, int _posX, int _posY) = 0;
+    virtual std::string getValue() = 0;
 };
+
+#endif
